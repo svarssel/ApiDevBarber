@@ -23,14 +23,13 @@ class CreateUsersTable extends Migration
           $table->id();
           $table->integer('id_user');
           $table->integer('id_barber');  
-    });
+        });
         Schema::create('userappointments', function (Blueprint $table) {
             $table->id();
             $table->integer('id_user');
             $table->integer('id_barber');
             $table->datetime('ap_datetime');
         });
-
         Schema::create('barbers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -39,26 +38,22 @@ class CreateUsersTable extends Migration
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
         });
-
         Schema::create('barberphotos', function (Blueprint $table) {
             $table->id();
             $table->integer('id_barber');
             $table->string('url');
         });
-
         Schema::create('barberreviews', function (Blueprint $table) {
             $table->id();
             $table->integer('id_barber');
             $table->float('rate');
         });
-
         Schema::create('barberservices', function (Blueprint $table) {
             $table->id();
             $table->integer('id_user');
             $table->string('name');
             $table->float('price');
         });
-
         Schema::create('barbertestimonials', function (Blueprint $table) {
             $table->id();
             $table->integer('id_barber');
@@ -66,7 +61,6 @@ class CreateUsersTable extends Migration
             $table->float('rate');
             $table->string('body');
         });
-
         Schema::create('barberavailability', function (Blueprint $table) {
             $table->id();
             $table->integer('id_user');
@@ -80,8 +74,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down()  {
         Schema::dropIfExists('users');
         Schema::dropIfExists('userfavorite');
         Schema::dropIfExists('userappointments');
